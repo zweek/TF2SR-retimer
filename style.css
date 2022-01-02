@@ -1,0 +1,84 @@
+body {
+    background-color: #222;
+    color: white;
+    font-size: 15pt;
+    font-family: monospace;
+}
+
+.template {
+    display: none;
+}
+
+.box {
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.hms-input-element {
+    padding: 10px 0;
+}
+
+.level-title {
+    color: rgb(96, 255, 207);
+    font-style: italic;
+}
+
+.hms-input {
+    display: inline-block;
+    margin: auto 10px;
+}
+
+.input {
+    display: inline-block;
+}
+
+.input-button {
+    display: none;
+    margin: 0;
+}
+
+.hms-input-element:hover .input-button {
+    display: inline-block;
+    width: 29px;
+}
+
+select {
+    font-size: 15pt;
+    font-family: monospace;
+}
+
+.include-ms {
+    display: inline-block;
+}
+
+#reset-button {
+    float: right;
+}
+
+input {
+    font-size: 15pt;
+    font-family: monospace;
+}
+
+input[type="number"] {
+    width: 50px;
+    margin-right: 5px;
+    text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+    font-size: 15pt;
+    font-family: monospace;
+}
+
+.result {
+    display: inline;
+    margin-left: 30px;
+}

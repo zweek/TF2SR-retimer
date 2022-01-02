@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script defer src="js/header.js"></script>
+        <script defer src="js/init.js"></script>
+        <script defer src="js/calc.js"></script>
+    </head>
+
+    <body>
+
+        <div class="box" id="header">
+            <select name="categories" id="category-select">
+                <option value="fg">Full Game</option>
+                <option value="il">Individual Level</option>
+                <option value="pc">Pilot's Challenge</option>
+            </select>
+            <div class="include-ms">
+                <input type="checkbox" id="includeMS-checkbox">
+                Include Milliseconds
+            </div>
+            <button id="reset-button">Reset</button>
+        </div>
+
+        <div class="box" id="content">
+            <div class="hms-input-level template">
+                <div class="level-title">Gauntlet</div>
+            </div>
+            <div class="hms-input-element template">
+                <div class="hms-input start">
+                    <div class="input h"><input type="number">h</div>
+                    <div class="input m"><input type="number">m</div>
+                    <div class="input s"><input type="number">s</div>
+                    <div class="input ms"><input type="number">ms</div>
+                </div>
+                <div class="hms-input connector">-</div>
+                <div class="hms-input end">
+                    <div class="input h"><input type="number">h</div>
+                    <div class="input m"><input type="number">m</div>
+                    <div class="input s"><input type="number">s</div>
+                    <div class="input ms"><input type="number">ms</div>
+                </div>
+                <button class="hms-input input-button add-button">+</button>
+            </div>
+            <button class="hms-input input-button rem-button template">-</button>
+        </div>
+
+        <div class="box" id="confirm">
+            <button id="calc-button">Calculate</button>
+            <div class="result"></div>
+        </div>
+
+    </body>
+</html>
