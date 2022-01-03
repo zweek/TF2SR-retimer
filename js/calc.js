@@ -1,11 +1,11 @@
 const calcButton = document.querySelector("#calc-button")
 
-function getInputElems() {
-    return document.querySelectorAll(".hms-input-element:not(.template)")
+function getSegmentElems() {
+    return document.querySelectorAll(".segment-container:not(.template)")
 }
 
 function getInputBoxes() {
-    return document.querySelector(".hms-input-element:not(.template) .hms-input.start").querySelectorAll(".input")
+    return document.querySelector(".segment-container:not(.template) .hms-input.start").querySelectorAll(".input")
 }
 
 calcButton.onclick = function() {
@@ -14,7 +14,7 @@ calcButton.onclick = function() {
     let segEnd = 0
     let multiplier = 1
     // loop through hms input elements
-    for (let i = 0; i < getInputElems().length; i++) {
+    for (let i = 0; i < getSegmentElems().length; i++) {
         // loop through input boxes
         for (let j = 0; j < getInputBoxes().length; j++) {
 
@@ -29,8 +29,8 @@ calcButton.onclick = function() {
                 case 3: multiplier = 1; break;
             }
             // calc total MS count for start and end times
-            segStart += getInputElems()[i].querySelector(".hms-input.start").querySelectorAll("input")[j].value * multiplier
-            segEnd += getInputElems()[i].querySelector(".hms-input.end").querySelectorAll("input")[j].value * multiplier
+            segStart += getSegmentElems()[i].querySelector(".hms-input.start").querySelectorAll("input")[j].value * multiplier
+            segEnd += getSegmentElems()[i].querySelector(".hms-input.end").querySelectorAll("input")[j].value * multiplier
         }
         // get difference between start and end
         totalMS += Math.abs(segEnd - segStart)

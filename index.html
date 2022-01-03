@@ -18,37 +18,53 @@
             </select>
             <div class="include-ms">
                 <input type="checkbox" id="includeMS-checkbox">
-                Include Milliseconds
+                <label>Include Milliseconds</label>
             </div>
             <button id="reset-button">Reset</button>
         </div>
 
         <div class="box" id="content">
-            <div class="hms-input-level template">
-                <div class="level-title">Gauntlet</div>
+            <div class="level-container template">
+                <div class="level-title hms-input">Gauntlet</div>
             </div>
-            <div class="hms-input-element template">
+            <div class="segment-container template">
                 <div class="hms-input start">
-                    <div class="input h"><input type="number">h</div>
-                    <div class="input m"><input type="number">m</div>
-                    <div class="input s"><input type="number">s</div>
-                    <div class="input ms"><input type="number">ms</div>
+                    <div class="input h"><input type="number">
+                        <label>h</label>
+                    </div>
+                    <div class="input m"><input type="number">
+                        <label>m</label>
+                    </div>
+                    <div class="input s"><input type="number">
+                        <label>s</label>
+                    </div>
+                    <div class="input ms"><input type="number">
+                        <label>ms</label>
+                    </div>
                 </div>
-                <div class="hms-input connector">-</div>
+                <label class="connector">-</label>
                 <div class="hms-input end">
-                    <div class="input h"><input type="number">h</div>
-                    <div class="input m"><input type="number">m</div>
-                    <div class="input s"><input type="number">s</div>
-                    <div class="input ms"><input type="number">ms</div>
+                    <div class="input h"><input type="number">
+                        <label>h</label>
+                    </div>
+                    <div class="input m"><input type="number">
+                        <label>m</label>
+                    </div>
+                    <div class="input s"><input type="number">
+                        <label>s</label>
+                    </div>
+                    <div class="input ms"><input type="number">
+                        <label>ms</label>
+                    </div>
                 </div>
-                <button class="hms-input input-button add-button">+</button>
+                <button class="seg-button add-button">+</button>
             </div>
-            <button class="hms-input input-button rem-button template">-</button>
+            <button class="seg-button rem-button template">-</button>
         </div>
 
-        <div class="box" id="confirm">
+        <div class="box" id="calc">
             <button id="calc-button">Calculate</button>
-            <div class="result"></div>
+            <label class="result"></label>
         </div>
 
     </body>

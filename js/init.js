@@ -1,22 +1,22 @@
 const content = document.querySelector("#content")
 const levels = ["Gauntlet","BT-7274","Blood & Rust","Abyss 1","Abyss 2","Abyss 3","Effect & Cause 1","Effect & Cause 2","Effect & Cause 3","Beacon 1","Beacon 2","Beacon 3","Trial by Fire","The Ark","Fold Weapon"]
-const levelsShort = ["g","bt","bnr","ita1","ita2","ita3","enc1","enc2","enc3","b1","b2","b3","tbf","ark","tfw"]
+// const levelsShort = ["g","bt","bnr","ita1","ita2","ita3","enc1","enc2","enc3","b1","b2","b3","tbf","ark","tfw"]
 
 function insertAfter(newNode, existingNode) {
     existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
 }
 
 function getCurrentLevelInputElems(element) {
-    return element.closest(".hms-input-level").querySelectorAll(".hms-input-element")
+    return element.closest(".level-container").querySelectorAll(".segment-container")
 }
 
 function remButtonFunc(button) {
     // add 'remove' button functionality
     button.onclick = function() {
-        let inputLevel = button.closest(".hms-input-level")
-        button.closest(".hms-input-element").remove()
+        let inputLevel = button.closest(".level-container")
+        button.closest(".segment-container").remove()
         // remove 'remove' button from other element when only 1 element is left
-        if (inputLevel.querySelectorAll(".hms-input-element").length === 1) {
+        if (inputLevel.querySelectorAll(".segment-container").length === 1) {
             inputLevel.querySelector(".rem-button").remove()
         }
     }
@@ -24,7 +24,7 @@ function remButtonFunc(button) {
 
 function createNewInputElem(currentElem) {
     // copy input template
-    const inputTemplate = document.querySelector(".hms-input-element.template")
+    const inputTemplate = document.querySelector(".segment-container.template")
     const remButtonTemplate = document.querySelector(".rem-button.template")
     let newInputElem = inputTemplate.cloneNode(true)
     let newRemButton = remButtonTemplate.cloneNode(true)
@@ -38,7 +38,7 @@ function createNewInputElem(currentElem) {
     }
     // add new element to level
     if (currentElem.nextSibling === null) {
-        currentElem.closest(".hms-input-level").appendChild(newInputElem)
+        currentElem.closest(".level-container").appendChild(newInputElem)
     } else {
         insertAfter(newInputElem, currentElem)
     }
@@ -57,7 +57,7 @@ function createNewInputElem(currentElem) {
 
 function createNewLevelElem(level) {
     // copy level template
-    const levelTemplate = document.querySelector(".hms-input-level.template")
+    const levelTemplate = document.querySelector(".level-container.template")
     let newLevelElem = levelTemplate.cloneNode(true)
     // remove template classes to make visible
     newLevelElem.classList.remove("template")
@@ -72,7 +72,7 @@ function createNewLevelElem(level) {
 function newAddButtonFunc(currentButton) {
     currentButton.onclick = function() {
         // add new element
-        createNewInputElem(currentButton.closest(".hms-input-element"))
+        createNewInputElem(currentButton.closest(".segment-container"))
         // give next button same functionality
         newAddButton(currentButton)
     }
@@ -80,7 +80,7 @@ function newAddButtonFunc(currentButton) {
 
 function newAddButton(currentButton) {
     // update current 'add' button to be from neighboring element
-    currentButton = currentButton.closest(".hms-input-element").nextSibling.querySelector(".add-button")
+    currentButton = currentButton.closest(".segment-container").nextSibling.querySelector(".add-button")
     newAddButtonFunc(currentButton)
 }
 
