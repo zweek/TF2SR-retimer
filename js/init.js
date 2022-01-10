@@ -22,36 +22,36 @@ function remButtonFunc(button) {
     }
 }
 
-function createNewInputElem(currentElem) {
+function createNewSegment(currentSegment) {
     // copy input template
-    const inputTemplate = document.querySelector(".segment-container.template")
+    const segmentTemplate = document.querySelector(".segment-container.template")
     const remButtonTemplate = document.querySelector(".rem-button.template")
-    let newInputElem = inputTemplate.cloneNode(true)
+    let newSegment = segmentTemplate.cloneNode(true)
     let newRemButton = remButtonTemplate.cloneNode(true)
     // remove template class to make visible
-    newInputElem.classList.remove("template")
+    newSegment.classList.remove("template")
     newRemButton.classList.remove("template")
     // remove ms elements if includeMS is false
     if (getIncludeMS() === false) {
-        newInputElem.querySelector(".ms").remove()
-        newInputElem.querySelector(".ms").remove()
+        newSegment.querySelector(".ms").remove()
+        newSegment.querySelector(".ms").remove()
     }
     // add new element to level
-    if (currentElem.nextSibling === null) {
-        currentElem.closest(".level-container").appendChild(newInputElem)
+    if (currentSegment.nextSibling === null) {
+        currentSegment.closest(".level-container").appendChild(newSegment)
     } else {
-        insertAfter(newInputElem, currentElem)
+        insertAfter(newSegment, currentSegment)
     }
     // add 'remove' button to next sibling
-    if (getCurrentLevelInputElems(currentElem).length > 1) {
-        currentElem.nextSibling.appendChild(newRemButton)
-        remButtonFunc(currentElem.nextSibling.querySelector(".rem-button"))
+    if (getCurrentLevelInputElems(currentSegment).length > 1) {
+        currentSegment.nextSibling.appendChild(newRemButton)
+        remButtonFunc(currentSegment.nextSibling.querySelector(".rem-button"))
     }
     // add 'remove' button to self on first call
-    if (getCurrentLevelInputElems(currentElem).length === 2) {
+    if (getCurrentLevelInputElems(currentSegment).length === 2) {
         newRemButton = newRemButton.cloneNode(true)
-        currentElem.appendChild(newRemButton)
-        remButtonFunc(currentElem.querySelector(".rem-button"))
+        currentSegment.appendChild(newRemButton)
+        remButtonFunc(currentSegment.querySelector(".rem-button"))
     }
 }
 
@@ -63,7 +63,7 @@ function createNewLevelElem(level) {
     newLevelElem.classList.remove("template")
     // apply level name
     newLevelElem.querySelector(".level-title").textContent = level
-    createNewInputElem(newLevelElem)
+    createNewSegment(newLevelElem)
     // add new element to page
     content.appendChild(newLevelElem)
 }
@@ -72,16 +72,16 @@ function createNewLevelElem(level) {
 function newAddButtonFunc(currentButton) {
     currentButton.onclick = function() {
         // add new element
-        createNewInputElem(currentButton.closest(".segment-container"))
+        createNewSegment(currentButton.closest(".segment-container"))
         // give next button same functionality
-        newAddButton(currentButton)
+        newAddButton(currentButton.closest(".segment-container"))
     }
 }
 
-function newAddButton(currentButton) {
+function newAddButton(currentSegment) {
     // update current 'add' button to be from neighboring element
-    currentButton = currentButton.closest(".segment-container").nextSibling.querySelector(".add-button")
-    newAddButtonFunc(currentButton)
+    currentSegment = currentSegment.nextSibling
+    newAddButtonFunc(currentSegment.querySelector(".add-button"))
 }
 
 function addButtonInit() {
