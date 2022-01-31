@@ -3,10 +3,15 @@ body {
     color: white;
     font-size: 15pt;
     font-family: monospace;
+    cursor: default;
 }
 
 .template {
     display: none;
+}
+
+.interactable {
+    cursor: pointer;
 }
 
 .box {

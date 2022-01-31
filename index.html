@@ -13,16 +13,16 @@
     <body>
 
         <div class="box" id="header">
-            <select name="categories" id="category-select">
+            <select name="categories" class="interactable" id="category-select">
                 <option value="fg">Full Game</option>
                 <option value="il">Individual Level</option>
                 <option value="pc">Pilot's Challenge</option>
             </select>
-            <div class="include-ms">
+            <div class="include-ms interactable">
                 <input type="checkbox" id="includeMS-checkbox">
-                <label>Include Milliseconds</label>
+                Include Milliseconds
             </div>
-            <button id="reset-button">Reset</button>
+            <button class="interactable" id="reset-button">Reset</button>
         </div>
 
         <div class="box" id="content">
@@ -31,41 +31,25 @@
             </div>
             <div class="segment-container template">
                 <div class="hms-input start">
-                    <div class="input h"><input type="number">
-                        <label>h</label>
-                    </div>
-                    <div class="input m"><input type="number">
-                        <label>m</label>
-                    </div>
-                    <div class="input s"><input type="number">
-                        <label>s</label>
-                    </div>
-                    <div class="input ms"><input type="number">
-                        <label>ms</label>
-                    </div>
+                    <div class="input h"><input type="number"> h </div>
+                    <div class="input m"><input type="number"> m </div>
+                    <div class="input s"><input type="number"> s </div>
+                    <div class="input ms"><input type="number"> ms </div>
                 </div>
                 <label class="connector">-</label>
                 <div class="hms-input end">
-                    <div class="input h"><input type="number">
-                        <label>h</label>
-                    </div>
-                    <div class="input m"><input type="number">
-                        <label>m</label>
-                    </div>
-                    <div class="input s"><input type="number">
-                        <label>s</label>
-                    </div>
-                    <div class="input ms"><input type="number">
-                        <label>ms</label>
-                    </div>
+                    <div class="input h"><input type="number"> h </div>
+                    <div class="input m"><input type="number"> m </div>
+                    <div class="input s"><input type="number"> s </div>
+                    <div class="input ms"><input type="number"> ms </div>
                 </div>
-                <button class="seg-button add-button">+</button>
+                <button class="seg-button add-button interactable">+</button>
             </div>
-            <button class="seg-button rem-button template">-</button>
+            <button class="seg-button rem-button template interactable">-</button>
         </div>
 
         <div class="box" id="calc">
-            <button id="calc-button">Calculate</button>
+            <button class="interactable" id="calc-button">Calculate</button>
             <label class="result"></label>
         </div>
 
