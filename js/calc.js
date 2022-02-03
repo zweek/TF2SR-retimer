@@ -1,18 +1,18 @@
-const calcButton = document.querySelector("#calc-button")
+const calcButton = document.querySelector("#calc-button");
 
 function getSegmentElems() {
-    return document.querySelectorAll(".segment-container:not(.template)")
+    return document.querySelectorAll(".segment-container:not(.template)");
 }
 
 function getInputBoxes() {
-    return document.querySelector(".segment-container:not(.template) .hms-input.start").querySelectorAll(".input")
+    return document.querySelector(".segment-container:not(.template) .hms-input.start").querySelectorAll(".input");
 }
 
 calcButton.onclick = function() {
-    let totalMS = 0
-    let segStart = 0
-    let segEnd = 0
-    let multiplier = 1
+    let totalMS = 0;
+    let segStart = 0;
+    let segEnd = 0;
+    let multiplier = 1;
     // loop through hms input elements
     for (let i = 0; i < getSegmentElems().length; i++) {
         // loop through input boxes
@@ -29,19 +29,19 @@ calcButton.onclick = function() {
                 case 3: multiplier = 1; break;
             }
             // calc total MS count for start and end times
-            segStart += getSegmentElems()[i].querySelector(".hms-input.start").querySelectorAll("input")[j].value * multiplier
-            segEnd += getSegmentElems()[i].querySelector(".hms-input.end").querySelectorAll("input")[j].value * multiplier
+            segStart += getSegmentElems()[i].querySelector(".hms-input.start").querySelectorAll("input")[j].value * multiplier;
+            segEnd += getSegmentElems()[i].querySelector(".hms-input.end").querySelectorAll("input")[j].value * multiplier;
         }
         // get difference between start and end
-        totalMS += Math.abs(segEnd - segStart)
+        totalMS += Math.abs(segEnd - segStart);
     }
-    let outTime = []
+    let outTime = [];
 
     // convert total MS back to HMS format
-    outTime[3] = totalMS % 1000
-    outTime[0] = Math.floor(totalMS / 3600000)
-    outTime[1] = Math.floor(totalMS / 60000 - outTime[0] * 60)
-    outTime[2] = Math.floor(totalMS / 1000 - outTime[1] * 60 - outTime[0] * 3600)
+    outTime[3] = totalMS % 1000;
+    outTime[0] = Math.floor(totalMS / 3600000);
+    outTime[1] = Math.floor(totalMS / 60000 - outTime[0] * 60);
+    outTime[2] = Math.floor(totalMS / 1000 - outTime[1] * 60 - outTime[0] * 3600);
     
-    document.querySelector(".result").textContent = `Time: ${outTime[0]}h ${outTime[1]}m ${outTime[2]}s ${outTime[3]}ms`
+    document.querySelector(".result").textContent = `Time: ${outTime[0]}h ${outTime[1]}m ${outTime[2]}s ${outTime[3]}ms`;
 }
