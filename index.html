@@ -12,23 +12,23 @@
 
     <body>
 
-        <div class="box" id="header">
-            <select name="categories" class="interactable" id="category-select">
+        <header class="box">
+            <select name="categories" id="category-select">
                 <option value="fg">Full Game</option>
                 <option value="il">Individual Level</option>
                 <option value="pc">Pilot's Challenge</option>
             </select>
-            <div class="include-ms interactable">
+            <label class="include-ms">
                 <input type="checkbox" id="includeMS-checkbox">
                 Include Milliseconds
-            </div>
-            <button class="interactable" id="reset-button">Reset</button>
-        </div>
+            </label>
+            <button id="reset-button">Reset</button>
+        </header>
 
         <div class="box" id="content">
-            <div class="level-container template">
+            <label class="level-container template">
                 <div class="level-title hms-input">Gauntlet</div>
-            </div>
+            </label>
             <div class="segment-container template">
                 <div class="hms-input start">
                     <div class="input h"><input type="number"> h </div>
@@ -43,13 +43,13 @@
                     <div class="input s"><input type="number"> s </div>
                     <div class="input ms"><input type="number"> ms </div>
                 </div>
-                <button class="seg-button add-button interactable">+</button>
+                <button class="seg-button add-button">+</button>
             </div>
-            <button class="seg-button rem-button template interactable">-</button>
+            <button class="seg-button rem-button template">-</button>
         </div>
 
         <div class="box" id="calc">
-            <button class="interactable" id="calc-button">Calculate</button>
+            <button id="calc-button">Calculate</button>
             <label class="result"></label>
         </div>
 

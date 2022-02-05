@@ -1,65 +1,65 @@
-body {
-    background-color: #222;
-    color: white;
-    font-size: 15pt;
-    font-family: monospace;
-    cursor: default;
+:root {
+    --color_bg_dark: rgb(25, 27, 32);
+    --color_bg_semidark: rgb(43, 45, 51);
+    --color_accent: rgb(55, 241, 185);
 }
 
 .template {
     display: none;
 }
 
-.interactable {
-    cursor: pointer;
-}
-
-.box {
-    background-color: #333;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.segment-container {
-    padding: 10px 0;
-}
-
-.level-title {
-    color: rgb(96, 255, 207);
-    font-style: italic;
-    padding-top: 10px;
-}
-
-.hms-input {
-    display: inline-block;
-    margin: auto 10px;
-}
-
-.input {
-    display: inline-block;
-}
-
-.seg-button {
-    display: none;
+body {
+    background-color: var(--color_bg_semidark);
+    color: white;
     margin: 0;
+    font-size: 15pt;
+    font-family: monospace;
 }
 
-.segment-container:hover .seg-button {
-    display: inline-block;
-    background-color: rgb(96, 255, 207);
-    border-color: #00000000;
-}
-
+button,
+input,
 select {
     font-size: 15pt;
     font-family: monospace;
+    border-color: transparent;
+    border-radius: 3px;
+}
+
+button,
+select {
+    cursor: pointer;
+}
+
+select {
     color: white;
-    background-color: #222;
-    border-color: #0000;
+    background-color: var(--color_bg_dark);
+}
+
+input {
+    color: white;
+    background-color: var(--color_bg_dark);
+}
+
+input[type="number"] {
+    width: 50px;
+    margin-right: 5px;
+    text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+header {
+    background-color: var(--color_accent);
+    color: black;
+    margin: 0;
 }
 
 .include-ms {
     display: inline-block;
+    cursor: pointer;
 }
 
 #includeMS-checkbox {
@@ -70,29 +70,37 @@ select {
     float: right;
 }
 
-input {
-    font-size: 15pt;
-    font-family: monospace;
+.box {
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
-input[type="number"] {
-    width: 50px;
-    margin-right: 5px;
-    text-align: right;
-    background-color: #222;
-    color: white;
-    border-color: #0000;
+.segment-container {
+    padding: 10px 0;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.level-title {
+    color: var(--color_accent);
+    font-style: italic;
+    padding-top: 10px;
 }
 
-button {
-    font-size: 15pt;
-    font-family: monospace;
+.hms-input,
+.input {
+    display: inline-block;
+}
+
+.hms-input {
+    margin: auto 10px;
+}
+
+.seg-button {
+    opacity: 0;
+    margin: 0;
+}
+
+.segment-container:hover .seg-button {
+    opacity: 1;
 }
 
 .result {
