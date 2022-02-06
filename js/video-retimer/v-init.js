@@ -1,14 +1,34 @@
-const input_URL = document.querySelector("#url-input").value
 const confirmURLbutton = document.querySelector("#confirm-url");
+const testButton = document.querySelector("#test");
 let input_videoID = "";
 
-// TODO figure out embed api so i can pull data from the video
-let tag = document.createElement("script");
-tag.src = "https://www.youtube.com/iframe_api";
+let player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '405',
+        width: '720',
+        //videoId: 'M7lc1UVf-VE',
+        playerVars: {
+            'playsinline': 1,
+            'modestbranding': 1
+        },
+        events: {
+            //'onReady': onPlayerReady,
+            //'onStateChange': onPlayerStateChange
+        }
+    });
+}
 
 confirmURLbutton.onclick = function() {
-    input_videoID = getVideoID(input_URL);
-    embedVideo(input_videoID);
+    player.cueVideoById(getVideoID(getInputURL()));
+}
+
+testButton.onclick = function() {
+    console.log(player.getCurrentTime());
+}
+
+function getInputURL() {
+    return document.querySelector("#url-input").value;
 }
 
 function getVideoID(input_URL) {
@@ -20,17 +40,4 @@ function getVideoID(input_URL) {
         end = input_URL.length;
     }
     return input_URL.substring(start, end);
-}
-
-function embedVideo(videoID) {
-    let videoEmbedElem = document.createElement("iframe");
-    videoEmbedElem.width = 560;
-    videoEmbedElem.height = 315;
-    videoEmbedElem.src = `https://www.youtube.com/embed/${videoID}`;
-
-    if (document.querySelector("iframe") !== null) {
-        document.querySelector("iframe").src = videoEmbedElem.src
-    } else {
-        document.body.appendChild(videoEmbedElem);
-    }
 }
