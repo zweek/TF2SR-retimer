@@ -10,15 +10,20 @@
         <link rel="stylesheet" href="style.css">
         <script defer src="https://www.youtube.com/iframe_api"></script>
         <script defer src="js/video-retimer/v-init.js"></script>
+        <script defer src="js/video-retimer/v-keynav.js"></script>
     </head>
     
     <body>
         <div class="box" id="header">
-            <input type="url" id="url-input">
-            <button id="confirm-url">Load video</button>
-            <button id="test">test</button>
+            <input type="url" id="input-url">
+            <button id="btn-confirm-url">Load video</button>
         </div>
         <div id="player"></div>
+
+        <div class="container-segment-controls">
+            <button id="btn-inpoint">Set Inpoint</button>
+            <button id="btn-outpoint">Set Outpoint</button>
+        </div>
         
     </body>
 </html>
