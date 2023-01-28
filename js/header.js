@@ -30,12 +30,9 @@ function getIncludeMS() {
     return includeMScheckbox.checked
 }
 
-document.querySelector(".include-ms").onclick = function() {
+document.querySelector("#includeMS-checkbox").onclick = function() {
     
-    if (getIncludeMS() === false) {
-        includeMScheckbox.checked = true
-        localStorage.setItem("settingMSchecked", 1)
-        
+    if (getIncludeMS()) {
         const msTemplate = document.querySelector(".segment-container.template .input.ms")
         // add ms input boxes
         for (let i = 0; i < getSegmentElems().length; i++) {
@@ -44,17 +41,15 @@ document.querySelector(".include-ms").onclick = function() {
         }
         
     } else {
-        includeMScheckbox.checked = false
-        localStorage.setItem("settingMSchecked", "")
-        
         // remove ms input boxes
         for (let i = 0; i < getSegmentElems().length * 2; i++) {
             document.querySelector(".segment-container:not(.template) .ms").remove()
         }
     }
+    localStorage.setItem("settingMSchecked", includeMScheckbox.checked) // gets converted to string 'true' or 'false'
 }
 
-includeMScheckbox.checked = localStorage.getItem("settingMSchecked")
+includeMScheckbox.checked = localStorage.getItem("settingMSchecked") == 'true'
 if (localStorage.getItem("settingCategory")) {
     categorySelect.value = localStorage.getItem("settingCategory")
 }

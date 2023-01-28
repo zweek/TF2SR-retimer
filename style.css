@@ -63,7 +63,7 @@ header {
 }
 
 #includeMS-checkbox {
-    pointer-events: none;
+    cursor: inherit;
 }
 
 #reset-button {
